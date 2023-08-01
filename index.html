@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventana de Inicio</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #E0FFFF;
+      overflow: hidden;
+    }
+    
+    .animation {
+      font-size: 36px;
+      position: absolute;
+      opacity: 0;
+      animation: moveDisappear 2s infinite;
+    }
+    
+    @keyframes moveDisappear {
+      0%, 100% { transform: translateY(-50%); opacity: 0; }
+      50% { transform: translateY(-40%); opacity: 1; }
+    }
+    
+    .options {
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    .options button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      background-color: #333;
+      color: #FFF;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    var animationDuration = 2; 
+
+    function createAnimation() {
+      var animation = document.createElement('div');
+      animation.textContent = '¡Bienvenido!';
+      animation.classList.add('animation');
+      document.body.appendChild(animation);
+
+      var x = Math.random() * (window.innerWidth - animation.offsetWidth);
+      var y = Math.random() * (window.innerHeight - animation.offsetHeight);
+
+      var dx = 2; 
+      var dy = 2; 
+
+      function animate() {
+        x += dx;
+        y += dy;
+
+        
+        if (x + animation.offsetWidth > window.innerWidth || x < 0) {
+          dx = -dx;
+        }
+        if (y + animation.offsetHeight > window.innerHeight || y < 0) {
+          dy = -dy;
+        }
+
+        animation.style.left = x + 'px';
+        animation.style.top = y + 'px';
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+    createAnimation();
+  </script>
+
+  <div class="options">
+    <button onclick="goToPage('motocicleta.html')">Motocicleta</button>
+    <button onclick="goToPage('auto.html')">Auto</button>
+    <button onclick="goToPage('camioneta.html')">Camioneta</button>
+     <button onclick="goToPage('ventas.html')">Ventas</button>
+     <button onclick="goToPage('proximamente.html')">Proximamente</button>
+     <button onclick="goToPage('videos.html')">Videos</button>
+</div>
+
+<script>
+    function goToPage(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

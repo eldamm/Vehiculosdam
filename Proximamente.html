@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombres de Autos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .car-names {
+      position: absolute;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .car-name {
+      font-size: 18px;
+      opacity: 0;
+      animation: fadeInOut 3s infinite;
+      position: absolute;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="car-names"></div>
+
+  <script>
+    const carNames = [
+      "Toyota Camry", "Honda Accord", "Ford Mustang", "Chevrolet Corvette", "Nissan Altima",
+      "Audi A4", "BMW 3 Series", "Mercedes-Benz C-Class", "Lexus ES", "Volkswagen Golf",
+    ];
+
+    const carNamesContainer = document.querySelector(".car-names");
+
+    function getRandomCarName() {
+      return carNames[Math.floor(Math.random() * carNames.length)];
+    }
+
+    function createCarNameElement() {
+      const carName = document.createElement("div");
+      carName.className = "car-name";
+      carName.textContent = getRandomCarName();
+      carName.style.left = (Math.random() * (window.innerWidth - 100)) + "px";
+      carName.style.top = (Math.random() * (window.innerHeight - 30)) + "px";
+      return carName;
+    }
+
+    function animateCarName(element) {
+      element.style.animationDuration = (Math.random() * 5 + 3) + "s";
+    }
+
+    function showRandomCarName() {
+      const carNameElement = createCarNameElement();
+      carNamesContainer.appendChild(carNameElement);
+
+      setTimeout(function() {
+        carNameElement.remove();
+      }, 3000);
+
+      animateCarName(carNameElement);
+
+      setTimeout(showRandomCarName, Math.random() * 1000);
+    }
+
+    showRandomCarName();
+  </script>
+</body>
+</html>

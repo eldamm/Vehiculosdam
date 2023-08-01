@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+<div class="theme"></div>
+
+  <table>
+    <tr>
+      <th>BMW</th>
+      <th>X6 SUV</th>
+      <th>KTM</th>
+    </tr>
+    <tr>
+      <td id="videoCell1"></td>
+      <td id="videoCell2"></td>
+      <td id="videoCell3"></td>
+    </tr>
+    <tr>
+      <th>HONDA</th>
+      <th>SUBURBAN</th>
+      <th>EXPEDITION</th>
+    </tr>
+    <tr>
+      <td id="videoCell4"></td>
+      <td id="videoCell5"></td>
+      <td id="videoCell6"></td>
+    </tr>
+    <tr>
+  </table>
+
+  <script>
+    function agregarVideo() {
+      const videos = [
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/c0HnmpvDmYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/llRjeF9OUkQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/dtt36iFoh74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/cb2Ne6GCItM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/n73YymgMdA0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/jh06cADQuUw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/qNAmY-1A5DU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/1SLmVI1DoWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/_rvxrIbDc2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      ];
+
+      const videoCells = document.querySelectorAll("td[id^='videoCell']");
+      for (let i = 0; i < videos.length; i++) {
+        videoCells[i].innerHTML = videos[i];
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', agregarVideo);
+  </script>
+
+</body>
+</html>

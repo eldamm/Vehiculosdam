@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motocicletas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #E0FFFF;
+      overflow: hidden;
+    }
+    
+    .animation {
+      font-size: 72px;
+      opacity: 0;
+      animation: fadeInOut 2s infinite;
+    }
+    
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .table-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .table-item {
+      width: 300px;
+      margin: 20px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .table-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .table-item h3 {
+      margin: 10px 0;
+    }
+
+    .table-item p {
+      margin: 5px 0;
+    }
+
+    #modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #modal-content {
+      background-color: #FFF;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    #modal h2 {
+      margin: 10px 0;
+    }
+
+    #modal p {
+      margin: 5px 0;
+    }
+
+    #modal button {
+      margin-top: 10px;
+      cursor: pointer;
+      background-color: #333;
+      color: #FFF;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="animation">Motocicletas</div>
+
+  <div class="table-container">
+    <div class="table-item">
+      <img src="Images/BMW.jpg" alt="BMW K 1600 Grand América">
+      <h3>BMW K 1600 Grand América</h3>
+      <p>Especificaciones de BMW K 1600 Grand América:</p>
+      <ul>
+        <li>Motor: 6 cilindros en línea, 1600cc</li>
+        <li>Potencia: 160 hp a 7,500 rpm</li>
+        <li>Torque: 175 Nm a 5,250 rpm</li>
+        <li>Peso: 365 kg</li>
+        <li>Transmisión: 6 velocidades</li>
+      </ul>
+      <button onclick="showSpecifications('BMW K 1600 Grand América')">Mostrar especificaciones</button>
+    </div>
+    <div class="table-item">
+      <img src="Images/Harley.jpg" alt="Harley Davidson CVO Limited">
+      <h3>Harley Davidson CVO Limited</h3>
+      <p>Especificaciones de Harley Davidson CVO Limited:</p>
+      <ul>
+        <li>Motor: Milwaukee-Eight 117, 1923cc</li>
+        <li>Potencia: 105 hp a 5,000 rpm</li>
+        <li>Torque: 165 Nm a 3,750 rpm</li>
+        <li>Peso: 408 kg</li>
+        <li>Transmisión: 6 velocidades</li>
+      </ul>
+      <button onclick="showSpecifications('Harley Davidson CVO Limited')">Mostrar especificaciones</button>
+    </div>
+    <div class="table-item">
+      <img src="Images/Horex.jpg" alt="Horex VR6 Café Racer HL">
+      <h3>Horex VR6 Café Racer HL</h3>
+      <p>Especificaciones de Horex VR6 Café Racer HL:</p>
+      <ul>
+        <li>Motor: VR6 de 1218cc</li>
+        <li>Potencia: 161 hp a 9,000 rpm</li>
+        <li>Torque: 132 Nm a 7,500 rpm</li>
+        <li>Peso: 225 kg</li>
+        <li>Transmisión: 6 velocidades</li>
+      </ul>
+      <button onclick="showSpecifications('Horex VR6 Café Racer HL')">Mostrar especificaciones</button>
+    </div>
+    <div class="table-item">
+      <img src="Images/MV.jpg" alt="MV Agusta Brutale 1000 Serie Oro">
+      <h3>MV Agusta Brutale 1000 Serie Oro</h3>
+      <p>Especificaciones de MV Agusta Brutale 1000 Serie Oro:</p>
+      <ul>
+        <li>Motor: 4 cilindros en línea, 998cc</li>
+        <li>Potencia: 208 hp a 13,450 rpm</li>
+        <li>Torque: 115 Nm a 9,300 rpm</li>
+        <li>Peso: 186 kg</li>
+        <li>Transmisión: 6 velocidades</li>
+      </ul>
+      <button onclick="showSpecifications('MV Agusta Brutale 1000 Serie Oro')">Mostrar especificaciones</button>
+    </div>
+  </div>
+
+  <div id="modal">
+    <div id="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-specs"></p>
+      <button onclick="hideModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    function showSpecifications(model) {
+      var modal = document.getElementById('modal');
+      var modalTitle = document.getElementById('modal-title');
+      var modalSpecs = document.getElementById('modal-specs');
+
+      modalTitle.textContent = model;
+      modalSpecs.textContent = getSpecifications(model);
+
+      modal.style.display = 'flex';
+    }
+
+    function hideModal() {
+      var modal = document.getElementById('modal');
+      modal.style.display = 'none';
+    }
+
+    function getSpecifications(model) {
+ 
+      var specifications = {
+        'BMW K 1600 Grand América': 'Especificaciones de BMW K 1600 Grand América: Motor: 6 cilindros en línea, 1600cc - Potencia: 160 hp a 7,500 rpm - Torque: 175 Nm a 5,250 rpm - Peso: 365 kg - Transmisión: 6 velocidades',
+        'Harley Davidson CVO Limited': 'Especificaciones de Harley Davidson CVO Limited: Motor: Milwaukee-Eight 117, 1923cc - Potencia: 105 hp a 5,000 rpm - Torque: 165 Nm a 3,750 rpm - Peso: 408 kg - Transmisión: 6 velocidades',
+        'Horex VR6 Café Racer HL': 'Especificaciones de Horex VR6 Café Racer HL: Motor: VR6 de 1218cc - Potencia: 161 hp a 9,000 rpm - Torque: 132 Nm a 7,500 rpm - Peso: 225 kg - Transmisión: 6 velocidades',
+        'MV Agusta Brutale 1000 Serie Oro': 'Especificaciones de MV Agusta Brutale 1000 Serie Oro: Motor: 4 cilindros en línea, 998cc - Potencia: 208 hp a 13,450 rpm - Torque: 115 Nm a 9,300 rpm - Peso: 186 kg - Transmisión: 6 velocidades',
+      };
+
+      return specifications[model] || 'Especificaciones no disponibles.';
+    }
+  </script>
+</body>
+</html>

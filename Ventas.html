@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas de Vehículos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #E0FFFF;
+    }
+
+    .animation {
+      font-size: 72px;
+      opacity: 0;
+      animation: fadeInOut 2s infinite;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .section {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .vehicle {
+      width: 300px;
+      margin: 20px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .vehicle img {
+      width: 100%;
+      height: auto;
+    }
+
+    .vehicle h3 {
+      margin: 10px 0;
+    }
+
+    .vehicle p {
+      margin: 5px 0;
+    }
+
+    #form-container {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #form-container input[type="text"],
+    #form-container input[type="email"],
+    #form-container textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+      border: 1px solid #ddd;
+    }
+
+    #form-container button {
+      cursor: pointer;
+      background-color: #333;
+      color: #FFF;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .show-section-btn {
+      cursor: pointer;
+      background-color: #333;
+      color: #FFF;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="animation">Ventas de Vehículos</div>
+
+  <button class="show-section-btn" onclick="showSection('motos')">Mostrar Motos</button>
+
+  <div class="section" id="motos">
+    <div class="vehicle">
+      <img src="https://www.moto1pro.com/sites/default/files/bmw-g-310-gs-rallye-2021.jpeg" alt="Moto 1">
+      <h3>BMW G 310 GS</h3>
+      <p>Especificaciones Motor: Un cilindro, 313 cc, refrigerado por líquido
+Potencia máxima: 34 hp a 9,500 rpm
+Par máximo: 28 Nm a 7,500 rpm
+Transmisión: 6 velocidades
+Sistema de combustible: Inyección electrónica de combustible
+Chasis: Marco de acero tubular.</p>
+    </div>
+    <div class="vehicle">
+      <img src="https://www.moto1pro.com/sites/default/files/prueba_honda_forza_350_solucion_definitiva_premium.jpeg" alt="Moto 2">
+      <h3>Honda Forza 350</h3>
+      <p>EspecificacionesMotor: Un cilindro, 330 cc, refrigerado por líquido
+Potencia máxima: 29 hp a 7,500 rpm
+Par máximo: 31 Nm a 5,250 rpm
+Transmisión: Automática de tipo CVT </p>
+    </div>
+    <div class="vehicle">
+      <img src="https://www.moto1pro.com/sites/default/files/ktm_390_adventure_a2_significa_aventura_al_cuadrado.jpeg" alt="Moto 3">
+      <h3>KTM 390 Adventure</h3>
+      <p>Especificaciones Motor: Un cilindro, 373.2 cc, refrigerado por líquido
+Potencia máxima: 43 hp a 9,000 rpm
+Par máximo: 37 Nm a 7,000 rpm
+Transmisión: 6 velocidades
+Sistema de combustible: Inyección electrónica de combustible
+Chasis: Estructura de acero tipo trellis</p>
+    </div>
+  </div>
+
+  <button class="show-section-btn" onclick="showSection('autos')">Mostrar Autos</button>
+
+  <div class="section" id="autos">
+    <div class="vehicle">
+      <img src="https://www.honda.mx/web/img/cars/models/civic/2023/slider/1.jpg" alt="Auto 1">
+      <h3>Honda Civic</h3>
+      <p>Especificaciones Motor: Dependerá de la generación y la región, pero generalmente encontramos opciones de motores de 4 cilindros, con capacidades que van desde 1.5 litros hasta 2.0 litros en versiones más recientes.
+Potencia máxima: Varía según la generación y la versión específica, pero suele estar en un rango de aproximadamente 140 a 180 caballos de fuerza.</p>
+    </div>
+    <div class="vehicle">
+      <img src="https://th.bing.com/th/id/R.28ae44249055d83907a7593138c5bd8c?rik=Hi6eeCitOJmpPA&pid=ImgRaw&r=0" alt="Auto 2">
+      <h3>Honda CR-V</h3>
+      <p>Especificaciones Motor: La Honda CR-V ha tenido diferentes generaciones y versiones con opciones de motores de 4 cilindros, con capacidades que van desde 2.0 litros hasta 2.4 litros en versiones más antiguas, y motores turboalimentados de 1.5 litros en versiones más recientes.
+Potencia máxima: La potencia varía según el año y la generación, pero suele estar en un rango de aproximadamente 140 a 190 caballos de fuerza.</p>
+    </div>
+    <div class="vehicle">
+      <img src="https://th.bing.com/th/id/OIP.AI3kwo_Q-6c0N_kQjKdE8QHaEL?pid=ImgDet&rs=1" alt="Auto 3">
+      <h3>Toyota Yaris</h3>
+      <p>Especificaciones Motor: El Toyota Yaris ha tenido diferentes generaciones y versiones con opciones de motores de 4 cilindros, con capacidades que van desde 1.3 litros hasta 1.5 litros en versiones más recientes.
+Potencia máxima: La potencia varía según el año y la generación, pero suele estar en un rango de aproximadamente 85 a 106 caballos de fuerza.</p>
+    </div>
+  </div>
+
+  <button class="show-section-btn" onclick="showSection('camionetas')">Mostrar Camionetas</button>
+
+  <div class="section" id="camionetas">
+    <div class="vehicle">
+      <img src="https://gossipvehiculo.com/wp-content/uploads/2022/10/ford-150.png" alt="Camioneta 1">
+      <h3>Ford F-150 2023</h3>
+      <p>Especificaciones Motor: Es probable que la Ford F-150 2023 ofrezca una variedad de opciones de motor, que podrían incluir motores V6 y V8, así como opciones de motores EcoBoost para mayor eficiencia en el consumo de combustible. La potencia variará según la elección del motor.
+
+Transmisión: Se espera que cuente con una transmisión automática de varias velocidades para un cambio suave y eficiente.</p>
+    </div>
+    <div class="vehicle">
+      <img src="https://gossipvehiculo.com/wp-content/uploads/2022/10/silverado.png" alt="Camioneta 2">
+      <h3>Chevrolet Silverado 1500 2023</h3>
+      <p>Especificaciones Motor: Es probable que la Ford F-150 2023 ofrezca una variedad de opciones de motor, que podrían incluir motores V6 y V8, así como opciones de motores EcoBoost para mayor eficiencia en el consumo de combustible. La potencia variará según la elección del motor.
+
+Transmisión: Se espera que cuente con una transmisión automática de varias velocidades para un cambio suave y eficiente.</p>
+    </div>
+    <div class="vehicle">
+      <img src="https://gossipvehiculo.com/wp-content/uploads/2022/10/sierra.png" alt="Camioneta 3">
+      <h3>GMC Sierra 1500 2023</h3>
+      <p>Especificaciones Motor: Es probable que la GMC Sierra 1500 2023 ofrezca una variedad de opciones de motor, que podrían incluir motores V6 y V8, así como opciones de motores EcoTec para mayor eficiencia en el consumo de combustible. La potencia y el rendimiento variarán según la elección del motor.
+
+Transmisión: Se espera que cuente con una transmisión automática de varias velocidades para un cambio suave y eficiente.</p>
+    </div>
+  </div>
+
+  <button class="show-section-btn" onclick="showForm()">Mostrar Formulario de Venta</button>
+
+  <div id="form-container">
+    <h2>Formulario de Venta</h2>
+    <input type="text" placeholder="Nombre">
+    <input type="email" placeholder="Correo electrónico">
+    <textarea placeholder="Mensaje"></textarea>
+    <button>Enviar</button>
+  </div>
+
+  <script>
+    var sections = ['motos', 'autos', 'camionetas'];
+    var currentSection = 0;
+
+    function showSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.style.display = 'flex';
+
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i] !== sectionId) {
+          var otherSection = document.getElementById(sections[i]);
+          otherSection.style.display = 'none';
+        }
+      }
+    }
+
+    function showForm() {
+      var formContainer = document.getElementById('form-container');
+      formContainer.style.display = 'flex';
+
+      for (var i = 0; i < sections.length; i++) {
+        var section = document.getElementById(sections[i]);
+        section.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
